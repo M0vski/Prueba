@@ -1,0 +1,16 @@
+from scipy.interpolate import lagrange
+
+x_coef = np.array([-1, 0, 1, 3])
+y_coef = np.array([-2, 1, -4, 10])
+x= np.linspace(-1.5, 3.1, 200)
+
+pol_lag = lagrange(x_coef, y_coef)
+
+fig = plt.figure(figsize = (10,8))
+plt.scatter(x_coef, y_coef, s=200, c='r')
+plt.plot(x, pol_lag(x), 'b', lw='3')
+plt.title('Polinomio de Lagrange (scipy)', fontsize=20)
+plt.grid()
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
